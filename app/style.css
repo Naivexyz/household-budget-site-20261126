@@ -1,0 +1,287 @@
+/* Hearth & Ledger — warm paper-and-ink styling. One stylesheet for the whole site:
+   layout, cards, tables, forms, budget bars, charts and the phone layout. */
+
+:root {
+  --paper: #faf5ec;
+  --paper-deep: #f2e9d8;
+  --ink: #26332b;
+  --ink-soft: #5a6a5e;
+  --line: #ddd2bd;
+  --accent: #b4552d;
+  --accent-deep: #93431f;
+  --green: #3e7d4e;
+  --green-soft: #dcead9;
+  --red: #b3372c;
+  --red-soft: #f6dcd6;
+  --gold: #c9932b;
+  --card: #fffdf8;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Avenir Next", "Segoe UI", system-ui, -apple-system, sans-serif;
+  line-height: 1.55;
+}
+
+h1, h2, h3, .serif {
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+a { color: var(--accent-deep); }
+
+/* ---------- header ---------- */
+
+.site-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 1.4rem;
+  padding: 0.9rem clamp(1rem, 4vw, 2.5rem);
+  background: var(--ink);
+  color: #f5efe2;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: inherit;
+  text-decoration: none;
+  margin-right: auto;
+}
+
+.brand-mark {
+  font-family: Georgia, serif;
+  font-weight: 700;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 8px;
+  padding: 0.28rem 0.5rem;
+  letter-spacing: 0.04em;
+}
+
+.brand-text { font-family: Georgia, serif; font-size: 1.25rem; }
+.brand-text .amp { color: var(--gold); }
+
+.site-nav { display: flex; flex-wrap: wrap; gap: 0.2rem 0.4rem; }
+.site-nav a {
+  color: #e8e0cd;
+  text-decoration: none;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+}
+.site-nav a:hover { background: rgba(255, 255, 255, 0.12); }
+.site-nav a.active { background: var(--accent); color: #fff; }
+
+/* ---------- page frame ---------- */
+
+.page {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: clamp(1rem, 3.5vw, 2.2rem);
+}
+
+.lede { max-width: 46rem; }
+.lede h1 { font-size: clamp(1.7rem, 4.5vw, 2.5rem); margin: 0.2rem 0 0.5rem; }
+.lede p { color: var(--ink-soft); margin: 0.2rem 0 1.2rem; }
+.kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 0;
+}
+
+h2.section { font-size: 1.35rem; margin: 2rem 0 0.7rem; }
+h2.section:first-of-type { margin-top: 1.4rem; }
+
+/* ---------- cards & grids ---------- */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 0.9rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+}
+
+.card .label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.card .figure { font-family: Georgia, serif; font-size: 1.9rem; margin: 0.15rem 0; }
+.card .sub { margin: 0; color: var(--ink-soft); font-size: 0.9rem; }
+.card .sub strong { color: var(--ink); }
+
+.split {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 0.9rem;
+  align-items: start;
+}
+
+/* ---------- budget bars ---------- */
+
+.bar-row { margin: 0.85rem 0; }
+.bar-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.95rem;
+}
+.bar-head .amounts { color: var(--ink-soft); white-space: nowrap; }
+.bar-head .amounts strong { color: var(--ink); }
+.bar {
+  height: 12px;
+  background: var(--paper-deep);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 0.3rem;
+}
+.bar > span { display: block; height: 100%; background: var(--green); border-radius: 999px; }
+.bar > span.over { background: var(--red); }
+.bar-note { font-size: 0.82rem; color: var(--ink-soft); margin: 0.25rem 0 0; }
+
+.pill {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+  vertical-align: middle;
+}
+.pill.ok { background: var(--green-soft); color: var(--green); }
+.pill.over { background: var(--red-soft); color: var(--red); }
+
+/* ---------- tables ---------- */
+
+table.ledger {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  font-size: 0.95rem;
+}
+table.ledger th, table.ledger td {
+  padding: 0.55rem 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+table.ledger th {
+  background: var(--paper-deep);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+}
+table.ledger tr:last-child td { border-bottom: none; }
+table.ledger td.num, table.ledger th.num { text-align: right; font-variant-numeric: tabular-nums; }
+table.ledger tfoot td { font-weight: 700; background: var(--paper-deep); }
+
+/* ---------- forms & controls ---------- */
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  align-items: end;
+  margin: 1rem 0;
+}
+.field { display: flex; flex-direction: column; gap: 0.25rem; }
+.field label { font-size: 0.8rem; font-weight: 600; color: var(--ink-soft); }
+.field input, .field select {
+  font: inherit;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  min-width: 0;
+}
+.field input:focus, .field select:focus { outline: 2px solid var(--gold); outline-offset: 1px; }
+
+button.btn {
+  font: inherit;
+  font-weight: 600;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+button.btn:hover { background: var(--accent-deep); }
+button.btn.ghost { background: transparent; color: var(--accent-deep); border: 1px solid var(--accent); }
+
+input.budget-edit { width: 6.2rem; text-align: right; }
+
+/* ---------- charts ---------- */
+
+.chart-card { padding: 1.1rem 1.2rem; }
+.chart-card h3 { margin: 0 0 0.2rem; font-size: 1.05rem; }
+.chart-card .chart-sub { margin: 0 0 0.6rem; color: var(--ink-soft); font-size: 0.88rem; }
+svg.chart { width: 100%; height: auto; display: block; }
+.legend { display: flex; gap: 1.2rem; font-size: 0.85rem; color: var(--ink-soft); margin-top: 0.4rem; }
+.legend .swatch { display: inline-block; width: 0.8rem; height: 0.8rem; border-radius: 3px; margin-right: 0.35rem; vertical-align: -0.1rem; }
+
+/* ---------- goals ---------- */
+
+.goal { margin-bottom: 0.9rem; }
+.goal .bar { height: 16px; }
+.goal-meta { display: flex; flex-wrap: wrap; gap: 0.4rem 1.4rem; font-size: 0.92rem; color: var(--ink-soft); }
+.goal-meta strong { color: var(--ink); }
+.goal input[type="number"] { width: 5.5rem; }
+
+/* ---------- insights ---------- */
+
+.tip { border-left: 4px solid var(--gold); }
+.tip h3 { margin: 0 0 0.3rem; font-size: 1.02rem; }
+.tip p { margin: 0; color: var(--ink-soft); font-size: 0.94rem; }
+
+/* ---------- footer ---------- */
+
+.site-foot {
+  border-top: 1px solid var(--line);
+  margin-top: 2.5rem;
+  padding: 1.4rem clamp(1rem, 4vw, 2.5rem) 2rem;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+.site-foot p { max-width: 62rem; margin: 0.3rem auto; }
+.foot-small { font-size: 0.82rem; }
+
+.empty-note { color: var(--ink-soft); font-style: italic; }
+
+/* ---------- phone ---------- */
+
+@media (max-width: 720px) {
+  .split { grid-template-columns: 1fr; }
+  .site-head { position: static; }
+  .brand { margin-right: 0; }
+  table.ledger { font-size: 0.88rem; }
+  table.ledger th, table.ledger td { padding: 0.45rem 0.5rem; }
+  .hide-phone { display: none; }
+  .card .figure { font-size: 1.55rem; }
+}

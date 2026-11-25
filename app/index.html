@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hearth &amp; Ledger — the Miller household budget</title>
+<meta name="description" content="A working household budget site: monthly plan, spending by category, transactions, savings goals and insights for one household.">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="#/">
+    <span class="brand-mark" aria-hidden="true">H&amp;L</span>
+    <span class="brand-text">Hearth <span class="amp">&amp;</span> Ledger</span>
+  </a>
+  <nav class="site-nav" aria-label="Sections">
+    <a href="#/" data-route="">Overview</a>
+    <a href="#/budget" data-route="budget">Budget plan</a>
+    <a href="#/transactions" data-route="transactions">Transactions</a>
+    <a href="#/goals" data-route="goals">Savings goals</a>
+    <a href="#/insights" data-route="insights">Insights</a>
+  </nav>
+</header>
+
+<main id="app" class="page"></main>
+
+<footer class="site-foot">
+  <p><strong>Hearth &amp; Ledger</strong> is a working demo household budget: every figure on it is the
+  Miller family's own ledger for November 2026, and every control — editing a budget, adding a
+  transaction, changing a goal contribution — updates the numbers across the site.</p>
+  <p class="foot-small">Static site, no accounts, no network: the ledger lives in this page. Amounts in US dollars.</p>
+</footer>
+
+<script type="module" src="/main.js"></script>
+</body>
+</html>
