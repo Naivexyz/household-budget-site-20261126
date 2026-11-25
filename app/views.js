@@ -30,14 +30,20 @@ export function overviewView(state) {
     <p class="kicker">${HOUSEHOLD.month} · ${HOUSEHOLD.members}</p>
     <h1>The month, in one look</h1>
     <p>The Millers take home ${money(income)} a month. By 25 November they had spent ${money(spent)} of a
-    ${money(budgeted)} plan and moved ${money(saved)} to savings — a ${rate}% savings rate. Two categories
+    ${money(budgeted)} plan and kept ${money(saved)} unspent — a ${rate}% savings rate. Two categories
     ran over; everything else held. The pages behind the links above run the same ledger.</p>
   </div>
   <div class="cards">
     <div class="card"><p class="label">Take-home income</p><p class="figure">${money(income)}</p><p class="sub">Three sources, listed on the <a href="#/budget">budget plan</a></p></div>
     <div class="card"><p class="label">Spent so far</p><p class="figure">${money(spent)}</p><p class="sub">of ${money(budgeted)} planned · <strong>${money(budgeted - spent)} left</strong></p></div>
-    <div class="card"><p class="label">Saved this month</p><p class="figure">${money(saved)}</p><p class="sub"><strong>${rate}%</strong> of income, paid first on payday</p></div>
+    <div class="card"><p class="label">Saved this month</p><p class="figure">${money(saved)}</p><p class="sub"><strong>${rate}%</strong> of income · goals are paid first, on payday</p></div>
     <div class="card"><p class="label">Categories over plan</p><p class="figure">${state.categories.filter((c) => c.spent > c.budget).length} of ${state.categories.length}</p><p class="sub">Dining out and utilities — see <a href="#/insights">insights</a></p></div>
+  </div>
+
+  <div class="card pace">
+    <div class="bar-head"><span><strong>Spending pace</strong> — day 25 of 30</span><span class="amounts">${money(spent)} of ${money(budgeted)} spent (${Math.round((spent / budgeted) * 100)}%) with ${Math.round((25 / 30) * 100)}% of the month gone</span></div>
+    <div class="bar" style="margin-top:1.2rem"><span style="width:${Math.round((spent / budgeted) * 100)}%"></span><span class="pace-marker" style="left:${Math.round((25 / 30) * 100)}%"></span></div>
+    <p class="bar-note">Spending runs a little ahead of the calendar — almost all of it the two over-plan categories. With five days left and ${money(budgeted - spent)} of plan remaining, the month still lands inside the plan if the last week is ordinary.</p>
   </div>
 
   <h2 class="section">Where the money is going</h2>

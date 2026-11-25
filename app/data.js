@@ -76,5 +76,5 @@ export const TIPS = [
   { title: 'Dining out is $52 over plan', body: 'Two family dinners and the Friday takeaway added up. The Millers\u2019 fix for December: one dinner out, and takeaway moves to every second Friday — worth about $90 a month.' },
   { title: 'The grocery run is a quiet win', body: 'Four Market Basket trips and one market visit came to $684 against a $720 budget. A written list and a no-top-up-shop rule did it; the midweek \u201cjust milk\u201d trip used to add $60 a month.' },
   { title: 'August is the expensive month', body: 'Spending peaked at $5,210 in August — holidays and school-start costs. The plan now puts $120 a month into an \u201cAugust fund\u201d from January, so the peak stops being a surprise.' },
-  { title: 'Savings rate: 23% and holding', body: 'Of $6,850 coming in, $1,600 went straight to goals on payday. Paying savings first — before the month can spend it — is the single habit behind every other number on this page.' },
+  { title: 'Savings rate: 35% this month', body: 'Of $6,850 coming in, $2,395 was still unspent on the 25th; $800 of it goes to the three goals on payday and the rest builds the current-account buffer. Paying savings first — before the month can spend it — is the single habit behind every other number on this page.' },
 ];
